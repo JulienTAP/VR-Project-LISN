@@ -45,7 +45,7 @@ public class jeuToPartition : MonoBehaviour
         {
             
             tw = new StreamWriter(path);
-            tw.WriteLine("Rapport d'activité du jeu de : " + this.nom);
+            tw.WriteLine("Rapport d'activité du jeu de : " + this.nom + " " + this.prenom);
             tw.WriteLine(this.date);
             tw.WriteLine("Instrument utilisé : " + Instrument[this.scène]); //Xylophone, batterie.
             tw.WriteLine("---");
@@ -61,8 +61,8 @@ public class jeuToPartition : MonoBehaviour
     public void InitSettings()
     {
         tw.WriteLine("Paramètres de la partition : ");
-        tw.WriteLine("Côté à travailler : " + this.side?"Droite":"Gauche");
-        tw.WriteLine("Nombre de mains : " + this.mains[1]?(this.mains[0]?"Les deux mains":"La main droite"):"La main gauche");
+        tw.WriteLine("Côté à travailler : " + (this.side?"Droite":"Gauche"));
+        tw.WriteLine("Nombre de mains : " + (this.mains[1]?(this.mains[0]?"Les deux mains":"La main droite"):"La main gauche"));
         tw.WriteLine("Nombre de touches : " + this.nbTouches);
         tw.WriteLine("---");
         
@@ -87,7 +87,6 @@ namespace programe
             jeu.InitDoc();
             jeu.InitSettings();
             jeu.WriteNote("Do", 0.5f);
-            jeu.tw.Close(); // A verifier
         }
     }
 }
