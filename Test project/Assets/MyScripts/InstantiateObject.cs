@@ -7,7 +7,6 @@ public class InstantiateObject : MonoBehaviour
 {
     public void InstantiateNewObject(GameObject go)
     {
-        //Instantiate(go, button.transform.position, button.transform.rotation);
-        Debug.Log("Creating");
+        Instantiate(go, this.transform.position+new Vector3(0,0,-0.1f), this.transform.rotation);
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - LDrumStick
   - LeftController
   - RightController
+  - Other
   layers:
   - Default
   - TransparentFX
