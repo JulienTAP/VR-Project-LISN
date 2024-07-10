@@ -19,7 +19,6 @@ public class ControllerTag : MonoBehaviour
     private DrumSticksTag DSTag;
 
     public void OnTriggerEnter(Collider other){
-        Debug.Log("Grab");
         if(other.CompareTag("LDrumStick") || other.CompareTag("RDrumStick")){
             Debug.Log("ControllerTag: " + this.tag + ", sending to stick" + other.tag);
             other.GetComponent<DrumSticksTag>().HolderTag = this.tag;

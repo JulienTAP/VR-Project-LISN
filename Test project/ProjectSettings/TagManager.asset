@@ -9,6 +9,7 @@ TagManager:
   - LeftController
   - RightController
   - Other
+  - FGToggle
   layers:
   - Default
   - TransparentFX
