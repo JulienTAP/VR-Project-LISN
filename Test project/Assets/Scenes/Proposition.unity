@@ -2740,6 +2740,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fdce79bf3afea43998bb4bcb5bb227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hauteur: 0.7
+  rayon: 0.7
   "PointRep\xE8re": {fileID: 1670231924}
 --- !u!1 &596206393
 GameObject:
@@ -3031,6 +3033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fdce79bf3afea43998bb4bcb5bb227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hauteur: 0
+  rayon: 0
   "PointRep\xE8re": {fileID: 1670231924}
 --- !u!4 &605345823 stripped
 Transform:
@@ -3993,6 +3997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fdce79bf3afea43998bb4bcb5bb227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hauteur: 0.7
+  rayon: 0.7
   "PointRep\xE8re": {fileID: 1670231924}
 --- !u!1001 &979100348
 PrefabInstance:
@@ -4442,6 +4448,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fdce79bf3afea43998bb4bcb5bb227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hauteur: 0.7
+  rayon: 0.7
   "PointRep\xE8re": {fileID: 1670231924}
 --- !u!1001 &1165009315
 PrefabInstance:
@@ -4538,6 +4546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fdce79bf3afea43998bb4bcb5bb227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hauteur: 0.7
+  rayon: 0.7
   "PointRep\xE8re": {fileID: 1670231924}
 --- !u!1001 &1188015654
 PrefabInstance:
@@ -7234,6 +7244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fdce79bf3afea43998bb4bcb5bb227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hauteur: 0.7
+  rayon: 0.7
   "PointRep\xE8re": {fileID: 1670231924}
 --- !u!1 &1691325096 stripped
 GameObject:

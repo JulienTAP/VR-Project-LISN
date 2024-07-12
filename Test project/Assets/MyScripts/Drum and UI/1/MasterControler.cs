@@ -31,7 +31,7 @@ public class MasterControler : MonoBehaviour
     }
 
 
-    public Vector3 GetVector3(DirectionFacing direction, SideFacing side)
+    /*public Vector3 GetVector3(DirectionFacing direction, SideFacing side)
     {
 
         switch (direction)
@@ -58,9 +58,9 @@ public class MasterControler : MonoBehaviour
         }
         Debug.Log("Mauvaise direction ou Sens");
         return new Vector3(0, 0, 0);
-    }
+    }*/
 
-    public void PosDrum(float value, Vector3 direction)
+    public void PosDrum(float value/*, Vector3 direction*/)
     {
         for(int i=0; i<Drums.Length; i++)
         {
@@ -74,7 +74,7 @@ public class MasterControler : MonoBehaviour
         
         for (int i = 0; i < Drums.Length; i++)
         {
-            this.Drums[i].GetComponent<DrumPosition2>().SetPos(value, GetVector3(Direction, Side));
+            this.Drums[i].GetComponent<DrumPosition2>().SetPos(value/*, GetVector3(Direction, Side)*/);
         }
     }
 
@@ -110,7 +110,7 @@ public class MasterControler : MonoBehaviour
                 this.dropdown.GetComponent<Dropdown>().value = 1;
                 break;
         }
-        this.PosDrum(this.slider.GetComponent<Slider>().value, this.GetVector3(Direction,Side));
+        this.PosDrum(this.slider.GetComponent<Slider>().value/*, this.GetVector3(Direction,Side)*/);
     }
 
     public void Reset()
