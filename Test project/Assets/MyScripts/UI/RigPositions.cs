@@ -6,37 +6,35 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class RigPositions : MonoBehaviour
 {
 
-    private Vector3 MenuPosition = new(0, 0, -2);
-    private Vector3 PlayerPosition = Vector3.zero;
-    private GameObject[] InstrumentElements = new GameObject[5];
+    public GameObject TeleportAnchor;
+    private Vector3 MenuPosition;
+    private Quaternion MenuRotation;
+    private Vector3 PlayerPosition;
+    private Quaternion PlayerRotation;
 
-    private void Start()
+    public void InitPosRX()
     {
-        GameObject.Find("ConfigurationResetButton").GetComponent<ResetConfiguration>().InstrumentElements.CopyTo(this.InstrumentElements, 0);
+        MenuPosition = this.transform.position;
+        MenuRotation = this.transform.rotation;
+
+        PlayerPosition = TeleportAnchor.transform.position;
+        PlayerRotation = TeleportAnchor.transform.rotation;
     }
 
     public void GoToMenuPosition()
     {
-        this.transform.position = MenuPosition;
+        this.transform.position = this.MenuPosition;
+        this.transform.rotation = this.MenuRotation;
     }
 
     public void GoToPlayerPosition() { 
         this.transform.position = this.PlayerPosition;
+        this.transform.rotation = this.PlayerRotation;
     }
-
-    public void DisableGrabInteractions()
-    {
-        foreach(GameObject el in InstrumentElements)
-        {
-            el.GetComponent<XRGrabInteractable>().enabled = false;
-        }
-    }
-
     public void EnterPlayerMode()
     {
         GameObject.Find("Left Ray Interactor").GetComponentInChildren<XRRayInteractor>().enabled = false;
         GameObject.Find("Right Ray Interactor").GetComponentInChildren<XRRayInteractor>().enabled = false;
-        DisableGrabInteractions();
         GoToPlayerPosition();
     }
 

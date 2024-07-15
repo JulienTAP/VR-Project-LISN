@@ -20,7 +20,7 @@ public class UICounter : MonoBehaviour
     {
         this.GetComponent<TMP_Text>().text = "Nombre d'éléments : " + Count;
         //GameObject.Find("ConfigurationResetButton").GetComponent<ResetConfiguration>().InstrumentElements.CopyTo(InstrumentElements,0);
-        GameObject.Find("ResetConfigCanva").SetActive(false);
+        /*GameObject.Find("ResetConfigCanva").SetActive(false);*/
     }
 
 

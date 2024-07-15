@@ -42,13 +42,15 @@ public class DrumPosition2 : MonoBehaviour
         }
         
         this.transform.position = PointRepère.transform.position + rayon * (Mathf.Cos(angle * Mathf.Deg2Rad) * PointRepère.transform.right + Mathf.Sin(angle * Mathf.Deg2Rad) * PointRepère.transform.forward) + new Vector3(0, hauteur, 0);
+        this.transform.eulerAngles -= new Vector3(0, angle-(90 * (int)(2.0f - rayon)), 0);
 
     }
 
     public void ChangePos(float pos/*, Vector3 direction*/)
     {
         /*this.transform.position = PosC + direction * 2 *(pos > 0.5f ? pos - 0.5f : pos - 0.5f);*/
-        this.transform.position = PointRepère.transform.position + rayon*(Mathf.Cos((pos+1.0f)* Mathf.PI + (angle-90) * Mathf.Deg2Rad) * PointRepère.transform.right - Mathf.Sin((pos + 1.0f) * Mathf.PI + (angle-90) * Mathf.Deg2Rad) * PointRepère.transform.forward) + new Vector3(0, hauteur, 0);
+        this.transform.position = PointRepère.transform.position + rayon*(Mathf.Cos((pos+1.0f)* Mathf.PI + (angle - (90 * (int)(2.0f - rayon))) * Mathf.Deg2Rad) * PointRepère.transform.right - Mathf.Sin((pos + 1.0f) * Mathf.PI + (angle-90) * Mathf.Deg2Rad) * PointRepère.transform.forward) + new Vector3(0, hauteur, 0);
+        this.transform.eulerAngles -= new Vector3(0, (pos + 1.0f) * Mathf.PI  + (angle - (90 * (int)(2.0f - rayon))) - (90 * (int)(2.0f - rayon)), 0);
     }
 
     public void SetPos(int pos)
