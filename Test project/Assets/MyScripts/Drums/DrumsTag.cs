@@ -19,7 +19,6 @@ public class DrumTag : MonoBehaviour
         {
             velocity = other.GetComponent<Rigidbody>().velocity;
             magnitude = velocity.magnitude;
-            Debug.Log(velocity);
             if(velocity.y < 0 )
             {
                 if(magnitude > 1.0f)
