@@ -10,7 +10,7 @@ public class MasterControler : MonoBehaviour
     public GameObject slider;
     public GameObject xrRig;
     public GameObject Anchor;
-    public enum DirectionFacing
+    /*public enum DirectionFacing
     {
         X,
         Z
@@ -21,7 +21,7 @@ public class MasterControler : MonoBehaviour
         Minus
     }
     public SideFacing Side;
-    public DirectionFacing Direction;
+    public DirectionFacing Direction;*/
     private int nbDrum = 1;
 
     public void Start()
