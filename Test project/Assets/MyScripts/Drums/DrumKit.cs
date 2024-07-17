@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Xsl;
 using UnityEngine;
 
 public class DrumKit : MonoBehaviour
 {
     public int ElementsNumber = 2;
     public int MinElementsNumber = 2;
-    public static int MaxElementsNumber = 5;
+    public int MaxElementsNumber = 5;
     public UICounter counter;
 
-    public GameObject[] InstrumentElements = new GameObject[MaxElementsNumber];
+    public GameObject[] InstrumentElements;
 
     // Start is called before the first frame update
     void Start()
@@ -43,11 +44,28 @@ public class DrumKit : MonoBehaviour
 
     public void OnInstrumentChangeToDrumKit()
     {
-        //call counter method
-        counter.Count = ElementsNumber;
         counter.max = MaxElementsNumber;
         counter.min = MinElementsNumber;
+        counter.Count = ElementsNumber;
         counter.UpdateCounter();
+        counter.CurrentInstrument = "DrumKit";
+        DisplayInstrument();
+    }
+
+    public void Hide()
+    {
+        for (int i = 0; i < ElementsNumber; i++)
+        {
+            InstrumentElements[i].SetActive(false);
+        }
+    }
+
+    public void DisplayInstrument()
+    {
+        for (int i = 0; i < ElementsNumber; i++)
+        {
+            InstrumentElements[i].SetActive(true);
+        }
     }
 
 }

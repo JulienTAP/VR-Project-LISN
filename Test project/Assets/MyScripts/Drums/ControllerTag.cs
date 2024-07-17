@@ -7,13 +7,15 @@ public class ControllerTag : MonoBehaviour
 {
     private DrumSticksTag DSTag;
 
-    public void OnTriggerEnter(Collider other){
+    void OnTriggerEnter(Collider other){
+        Debug.Log("Interactor trigger with " + other.tag);
         if(other.CompareTag("LDrumStick") || other.CompareTag("RDrumStick")){
+            Debug.Log("Sending tag");
             other.GetComponent<DrumSticksTag>().HolderTag = this.tag;
         }
     }
 
-    public void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if (other.TryGetComponent<DrumSticksTag>(out DSTag))
         {
@@ -23,4 +25,5 @@ public class ControllerTag : MonoBehaviour
             }
         }
     }
+
 }

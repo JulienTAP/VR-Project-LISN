@@ -8,11 +8,18 @@ public class RigPositions : MonoBehaviour
 
     private Vector3 MenuPosition = new(0, 0, -2);
     private Vector3 PlayerPosition = Vector3.zero;
-    private GameObject[] InstrumentElements = new GameObject[5];
+    private GameObject[] DrumElements;
+    private GameObject[] XyloElements;
+
+    public DrumKit Drums;
+    public XylophoneInitializer Xylophone;
 
     private void Start()
     {
-        GameObject.Find("ConfigurationResetButton").GetComponent<ResetConfiguration>().InstrumentElements.CopyTo(this.InstrumentElements, 0);
+        DrumElements = new GameObject[Drums.MaxElementsNumber];
+        Drums.InstrumentElements.CopyTo(DrumElements, 0);
+        XyloElements = new GameObject[Xylophone.MaxElementsNumber];
+        Xylophone.InstrumentTiles.CopyTo(XyloElements, 0);
     }
 
     public void GoToMenuPosition()
@@ -26,10 +33,11 @@ public class RigPositions : MonoBehaviour
 
     public void DisableGrabInteractions()
     {
-        foreach(GameObject el in InstrumentElements)
+        foreach(GameObject el in DrumElements)
         {
             el.GetComponent<XRGrabInteractable>().enabled = false;
         }
+        Xylophone.GetComponent<XRGrabInteractable>().enabled = false;
     }
 
     public void EnterPlayerMode()

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7316251372640078299}
   - component: {fileID: 7843223733553444257}
   - component: {fileID: 1525047494589296178}
+  - component: {fileID: -3523635101504208297}
   m_Layer: 0
   m_Name: XylophoneTile
   m_TagString: Untagged
@@ -117,7 +118,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -162,7 +163,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -202,3 +203,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3523635101504208297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4939999925189959895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4cc367a95ae2ac4696d94cebc575626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

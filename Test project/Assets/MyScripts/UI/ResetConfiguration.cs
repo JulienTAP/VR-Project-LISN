@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ResetConfiguration : MonoBehaviour
 {
-    //Will hold all instruments elements
-    public GameObject[] InstrumentElements = new GameObject[5];
+    private Vector3[] DrumPositions = new Vector3[5];
+    private Quaternion[] DrumRotations = new Quaternion[5];
+    private Vector3 XyloPosition;
+    private Quaternion XyloRotation;
 
-    private Vector3[] Positions = new Vector3[5];
-    private Quaternion[] Rotations = new Quaternion[5];
+    public DrumKit Drums;
+    public XylophoneInitializer Xylophone;
 
     private void Start()
     {
@@ -16,29 +18,29 @@ public class ResetConfiguration : MonoBehaviour
     }
     public void GetConfiguration()
     {
-        for(int i = 0; i < InstrumentElements.Length; i++)
+        for(int i = 0; i < Drums.InstrumentElements.Length; i++)
         {
-            if (InstrumentElements[i].activeSelf)
+            if (Drums.InstrumentElements[i].activeSelf)
             {
-                Positions[i] = InstrumentElements[i].transform.position;
-                Rotations[i] = InstrumentElements[i].transform.rotation;
-            } else
-            {
-                Positions[i] = new Vector3(0,0,0);
-                Rotations[i] = new Quaternion(0,0,0,0);
+                DrumPositions[i] = Drums.InstrumentElements[i].transform.position;
+                DrumRotations[i] = Drums.InstrumentElements[i].transform.rotation;
             }
         }
+        XyloPosition = Xylophone.gameObject.transform.position;
+        XyloRotation = Xylophone.gameObject.transform.rotation;
     }
 
     public void ResetConfig()
     {
-        for(int i = 0;i < InstrumentElements.Length; i++)
+        for(int i = 0;i < Drums.InstrumentElements.Length; i++)
         {
-            if (InstrumentElements[i].activeSelf)
+            if (Drums.InstrumentElements[i].activeSelf)
             {
-                InstrumentElements[i].transform.position = Positions[i];
-                InstrumentElements[i].transform.rotation = Rotations[i];
+                Drums.InstrumentElements[i].transform.position = DrumPositions[i];
+                Drums.InstrumentElements[i].transform.rotation = DrumRotations[i];
             }
         }
+        Xylophone.gameObject.transform.position = XyloPosition;
+        Xylophone.gameObject.transform.rotation = XyloRotation;
     }
 }

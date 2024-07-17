@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class DrumTag : MonoBehaviour
+public class PlayOnTrigger : MonoBehaviour
 {
     private AudioSource audioSource;
-    public XRBaseController LeftController;
-    public XRBaseController RightController;
+    private ActionBasedController LeftController;
+    private ActionBasedController RightController;
     private string holderTag;
     private Vector3 velocity;
     private float magnitude;
@@ -46,6 +46,9 @@ public class DrumTag : MonoBehaviour
 
     void Start(){
         audioSource = GetComponent<AudioSource>();
+        LeftController = GameObject.FindWithTag("LeftController").GetComponent<ActionBasedController>();
+        RightController = GameObject.FindWithTag("RightController").GetComponent<ActionBasedController>();
+
     }
-    
+
 }

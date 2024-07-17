@@ -13,14 +13,12 @@ public class UICounter : MonoBehaviour
     public int Count = 2;
     public DrumKit Drums;
     public XylophoneInitializer Xylophone;
-    //private GameObject[] InstrumentElements = new GameObject[5];
-    private string CurrentInstrument = "DrumKit";
+    [HideInInspector]
+    public string CurrentInstrument = "DrumKit";
     
     void Start()
     {
         this.GetComponent<TMP_Text>().text = "Nombre d'éléments : " + Count;
-        //GameObject.Find("ConfigurationResetButton").GetComponent<ResetConfiguration>().InstrumentElements.CopyTo(InstrumentElements,0);
-        GameObject.Find("ResetConfigCanva").SetActive(false);
     }
 
 
@@ -29,41 +27,27 @@ public class UICounter : MonoBehaviour
         this.GetComponent<TMP_Text>().text = "Nombre d'éléments : " + Count;
     }
 
-
-    public void InstrumentChange()
+    public void AddElement()
     {
-        switch(CurrentInstrument)
+        if (CurrentInstrument == "DrumKit")
         {
-            case "DrumKit":
-                Xylophone.gameObject.SetActive(false);
-                Drums.gameObject.SetActive(true);
-                Drums.OnInstrumentChangeToDrumKit();
-                break;
-            case "Xylophone":
-                Drums.gameObject.SetActive(false);
-                Xylophone.gameObject.SetActive(true);
-                Xylophone.OnInstrumentChangeToXylophone();
-                break;
-        }
-    }
-    /*
-    public void AddCounter()
-    {
-        if (Count < max)
+            Drums.AddElement();
+        } else
         {
-            InstrumentElements[Count].SetActive(true);
-            Count++;
-            UpdateCounter();
+            Xylophone.AddElement();
         }
     }
 
-    public void DecreaseCounter()
+    public void RemoveElement()
     {
-        if (Count > min)
+        if (CurrentInstrument == "DrumKit")
         {
-            Count--;
-            InstrumentElements[Count].SetActive(false);
-            UpdateCounter();
+            Drums.RemoveElement();
         }
-    }*/
+        else
+        {
+            Xylophone.RemoveElement();
+        }
+    }
+    
 }
