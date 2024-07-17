@@ -8,7 +8,9 @@ public class MasterControler : MonoBehaviour
     public GameObject[] Drums = new GameObject[5];
     public GameObject dropdown;
     public GameObject slider;
-    public enum DirectionFacing
+    public GameObject xrRig;
+    public GameObject Anchor;
+    /*public enum DirectionFacing
     {
         X,
         Z
@@ -19,7 +21,7 @@ public class MasterControler : MonoBehaviour
         Minus
     }
     public SideFacing Side;
-    public DirectionFacing Direction;
+    public DirectionFacing Direction;*/
     private int nbDrum = 1;
 
     public void Start()
@@ -28,6 +30,8 @@ public class MasterControler : MonoBehaviour
         {
             this.Drums[i].GetComponent<DrumPosition2>().InitPos(i+1);
         }
+        xrRig.GetComponent<RigPositions>().InitPosRX();
+
     }
 
 
