@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7316251372640078299}
   - component: {fileID: 7843223733553444257}
   - component: {fileID: 1525047494589296178}
-  - component: {fileID: -3523635101504208297}
+  - component: {fileID: 8414987915235011769}
   m_Layer: 0
   m_Name: XylophoneTile
   m_TagString: Untagged
@@ -203,7 +203,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-3523635101504208297
+--- !u!114 &8414987915235011769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,6 +212,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4939999925189959895}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4cc367a95ae2ac4696d94cebc575626, type: 3}
+  m_Script: {fileID: 11500000, guid: f5cd0f7b7a46c3b4ebb7a48fec0d4bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LController: {fileID: 7733875955768408218, guid: 2e16046ebcbcb6742a86569d82e56cce, type: 3}

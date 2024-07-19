@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class RigPositions : MonoBehaviour
+public class UIRigPositions : MonoBehaviour
 {
 
     private Vector3 MenuPosition;
@@ -13,9 +13,10 @@ public class RigPositions : MonoBehaviour
     private GameObject[] DrumElements;
     private GameObject[] XyloElements;
 
-    public DrumKit Drums;
-    public XylophoneInitializer Xylophone;
+    public DrumKit1 Drums;
+    public Xylophone Xylophone;
     public GameObject TeleportAnchor;
+    public Transform Offset;
 
     private void Start()
     {
@@ -23,11 +24,12 @@ public class RigPositions : MonoBehaviour
         Drums.InstrumentElements.CopyTo(DrumElements, 0);
         XyloElements = new GameObject[Xylophone.MaxElementsNumber];
         Xylophone.InstrumentTiles.CopyTo(XyloElements, 0);
+        InitPosRX();
     }
 
     public void InitPosRX()
     {
-        MenuPosition = this.transform.position;
+        MenuPosition = this.transform.localPosition;
         MenuRotation = this.transform.rotation;
 
         PlayerPosition = TeleportAnchor.transform.position;
@@ -36,11 +38,13 @@ public class RigPositions : MonoBehaviour
 
     public void GoToMenuPosition()
     {
-        this.transform.position = MenuPosition;
+        this.transform.localPosition = MenuPosition;
+        Offset.localPosition = new Vector3(0, 1.4f, 0);
     }
 
     public void GoToPlayerPosition() { 
-        this.transform.position = this.PlayerPosition;
+        this.transform.position = PlayerPosition;
+        Offset.localPosition = new Vector3(0, 1, 0);
     }
 
     public void DisableGrabInteractions()

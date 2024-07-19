@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MasterControler : MonoBehaviour
+public class MasterController : MonoBehaviour
 {
     public GameObject[] Drums = new GameObject[5];
     public GameObject dropdown;
@@ -28,7 +29,7 @@ public class MasterControler : MonoBehaviour
     {
         for (int i = 0; i < Drums.Length; i++)
         {
-            this.Drums[i].GetComponent<DrumPosition2>().InitPos(i+1);
+            this.Drums[i].GetComponent<DrumPosition>().InitPos(i);
         }
         xrRig.GetComponent<UIRigPositions>().InitPosRX();
 
@@ -68,7 +69,7 @@ public class MasterControler : MonoBehaviour
     {
         for(int i=0; i<Drums.Length; i++)
         {
-            this.Drums[i].GetComponent<DrumPosition2>().ChangePos(value/*, direction*/);
+            this.Drums[i].GetComponent<DrumPosition>().ChangePos(value/*, direction*/);
         }
         
     }
@@ -78,7 +79,7 @@ public class MasterControler : MonoBehaviour
         
         for (int i = 0; i < Drums.Length; i++)
         {
-            this.Drums[i].GetComponent<DrumPosition2>().SetPos(value/*, GetVector3(Direction, Side)*/);
+            this.Drums[i].GetComponent<DrumPosition>().SetPos(value/*, GetVector3(Direction, Side)*/);
         }
     }
 
@@ -87,17 +88,21 @@ public class MasterControler : MonoBehaviour
         switch (this.dropdown.GetComponent<Dropdown>().value)
         {
             case 0:
-                this.slider.GetComponent<Slider>().value = 0.5f;
+                this.slider.GetComponent<Slider>().value = 0;
                 break;
             case 1:
-                this.slider.GetComponent<Slider>().value = 1f;
+                this.slider.GetComponent<Slider>().value = 0.5f;
                 break;
             case 2:
-                this.slider.GetComponent<Slider>().value = 0f;
+                this.slider.GetComponent<Slider>().value = 1;
                 break;
         }
         this.SetDrum(this.dropdown.GetComponent<Dropdown>().value);
+    }
 
+    public void UpdateDropdownText()
+    {
+        dropdown.GetComponentInChildren<TMP_Text>().text = dropdown.GetComponent<Dropdown>().options[dropdown.GetComponent<Dropdown>().value].text;
     }
 
     public void NotifyFromSlider()
@@ -105,13 +110,13 @@ public class MasterControler : MonoBehaviour
         switch (this.slider.GetComponent<Slider>().value)
         {
             case 0f:
-                this.dropdown.GetComponent<Dropdown>().value = 2;
-                break;
-            case 0.5f:
                 this.dropdown.GetComponent<Dropdown>().value = 0;
                 break;
-            case 1f:
+            case 0.5f:
                 this.dropdown.GetComponent<Dropdown>().value = 1;
+                break;
+            case 1f:
+                this.dropdown.GetComponent<Dropdown>().value = 2;
                 break;
         }
         this.PosDrum(this.slider.GetComponent<Slider>().value/*, this.GetVector3(Direction,Side)*/);
@@ -120,9 +125,8 @@ public class MasterControler : MonoBehaviour
     public void Reset()
     {
         this.slider.GetComponent<Slider>().value = 0.5f;
-        this.dropdown.GetComponent<Dropdown>().value = 0;
-        this.SetDrum(0);
-
+        this.dropdown.GetComponent<Dropdown>().value = 1;
+        this.SetDrum(1);
     }
 
     public void AddDrum()
