@@ -6,11 +6,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Xylophone : MonoBehaviour
 {
+    [HideInInspector]
     public int ElementsNumber = 20;
+    [HideInInspector]
     public int MinElementsNumber = 5;
+    [HideInInspector]
     public int MaxElementsNumber = 20;
     [Tooltip("Les clips audio joués par les différentes lames de l'instrument, à remplir dans l'ordre de gauche à droite")]
-    public AudioClip[] audioClips;
+    public AudioClip[] audioClips = new AudioClip[20];
     public GameObject prefab;
     public UICounter1 counter;
 
@@ -38,6 +41,7 @@ public class Xylophone : MonoBehaviour
         InitialPosition = Parent.position;
         InitialRotation = Parent.rotation;
         Initializer();
+        TogglePlayOnTriggerComponent(false);
         this.gameObject.SetActive(false);
     }
 
@@ -50,7 +54,7 @@ public class Xylophone : MonoBehaviour
             blue = Random.Range(0.0f, 1.0f);
 
 
-            NewTile = Instantiate(prefab, new Vector3(Parent.position.x + i * 0.0025f, Parent.position.y, Parent.position.z - 0.38f + i * 0.04f), new Quaternion(0, 0, 0, 0), Parent) ;
+            NewTile = Instantiate(prefab, new Vector3(Parent.position.x - i * 0.0025f, Parent.position.y, - 0.48f + i * 0.05f), new Quaternion(0, 0, 0, 0), Parent) ;
             NewTile.GetComponent<AudioSource>().clip = audioClips[i];
             NewTile.transform.localScale = new Vector3(Width, Height, Length - (20-i) * 0.005f);
             NewTile.transform.eulerAngles = new Vector3(0, 90, 0);
@@ -139,10 +143,10 @@ public class Xylophone : MonoBehaviour
         }
     }
 
-    public void EnterPlayMode()
+    public void TogglePlayMode(bool isOn)
     {
-        TogglePlayOnTriggerComponent(true);
+        TogglePlayOnTriggerComponent(!isOn);
         GetControllers();
-        GetComponent<XRGrabInteractable>().enabled = false;
+        GetComponent<XRGrabInteractable>().enabled = !isOn;
     }
 }

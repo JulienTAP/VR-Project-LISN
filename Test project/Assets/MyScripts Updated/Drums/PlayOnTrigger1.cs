@@ -32,11 +32,11 @@ public class PlayOnTrigger1 : MonoBehaviour
                 holderTag = other.GetComponent<DrumSticks>().HolderTag;
                 if (holderTag == "LeftController")
                 {
-                    LeftController.SendHapticImpulse(0.1f, 0.1f);
+                    //LeftController.SendHapticImpulse(0.1f, 0.1f);
                 }
                 else if (holderTag == "RightController")
                 {
-                    RightController.SendHapticImpulse(0.1f, 0.1f);
+                    //RightController.SendHapticImpulse(0.1f, 0.1f);
                 }
                 audioSource.Play();
             }

@@ -22,6 +22,7 @@ public class DrumKit1 : MonoBehaviour
         {
             InstrumentElements[i].SetActive(false);
         }
+        TogglePlayOnTriggerComponent(false);
     }
 
 
@@ -102,11 +103,10 @@ public class DrumKit1 : MonoBehaviour
         }
     }
 
-    public void EnterPlayMode()
+    public void TogglePlayMode(bool isOn)
     {
-        ToggleDrumsGrabInteractions();
+        SetDrumsGrabInteractions(!isOn);
         GetControllers();
-        SetDrumsGrabInteractions(false);
+        TogglePlayOnTriggerComponent(isOn);
     }
-
 }
