@@ -5,25 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Controller : MonoBehaviour
 {
-    private DrumSticksTag DSTag;
-
-    void OnTriggerEnter(Collider other){
-        Debug.Log("Interactor trigger with " + other.tag);
-        if(other.CompareTag("LDrumStick") || other.CompareTag("RDrumStick")){
-            Debug.Log("Sending tag");
-            other.GetComponent<DrumSticksTag>().HolderTag = this.tag;
-        }
+    public void SetXRayInteractor(bool isOn){
+        GetComponent<XRRayInteractor>().enabled = isOn;
     }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.TryGetComponent<DrumSticksTag>(out DSTag))
-        {
-            if (this.CompareTag(DSTag.HolderTag))
-            {
-                other.GetComponent<DrumSticksTag>().HolderTag = "";
-            }
-        }
-    }
-
 }

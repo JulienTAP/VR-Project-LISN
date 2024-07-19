@@ -75,6 +75,7 @@ public class DrumKit1 : MonoBehaviour
         foreach (GameObject drum in InstrumentElements)
         {
             drum.GetComponent<XRGrabInteractable>().enabled = isOn;
+            drum.GetComponent<BoxCollider>().enabled = isOn;
         }
     }
 
@@ -84,12 +85,28 @@ public class DrumKit1 : MonoBehaviour
         SetDrumsGrabInteractions(T.isOn);
     }
 
-    public void ToggleBoxCollider(bool isOn)
+
+    public void GetControllers()
+    {
+        foreach(GameObject drum in InstrumentElements)
+        {
+            drum.GetComponentInChildren<PlayOnTrigger1>().GetControllers();
+        }
+    }
+
+    public void TogglePlayOnTriggerComponent(bool isOn)
     {
         foreach (GameObject drum in InstrumentElements)
         {
-            drum.GetComponent<BoxCollider>().enabled = isOn;
+            drum.GetComponentInChildren<PlayOnTrigger1>().enabled = isOn;
         }
+    }
+
+    public void EnterPlayMode()
+    {
+        ToggleDrumsGrabInteractions();
+        GetControllers();
+        SetDrumsGrabInteractions(false);
     }
 
 }

@@ -31,8 +31,6 @@ public class MasterController : MonoBehaviour
         {
             this.Drums[i].GetComponent<DrumPosition>().InitPos(i);
         }
-        xrRig.GetComponent<UIRigPositions>().InitPosRX();
-
     }
 
 

@@ -43,22 +43,8 @@ public class Xylophone : MonoBehaviour
 
     public void Initializer()
     {
-        //float x = 0;
         for (int i = 0; i < MaxElementsNumber; i++)
         {
-            /*
-            if (i <= 10)
-            {
-                red = 1 - 2*x;
-                blue = 0;
-                green = 2 * x;
-            } else
-            {
-                red = 0;
-                blue = 2 * (x - 0.5f);
-                green = -1 + 2*x;
-            }
-            */
             red = Random.Range(0.0f, 1.0f);
             green = Random.Range(0.0f, 1.0f);
             blue = Random.Range(0.0f, 1.0f);
@@ -66,12 +52,11 @@ public class Xylophone : MonoBehaviour
 
             NewTile = Instantiate(prefab, new Vector3(Parent.position.x + i * 0.0025f, Parent.position.y, Parent.position.z - 0.38f + i * 0.04f), new Quaternion(0, 0, 0, 0), Parent) ;
             NewTile.GetComponent<AudioSource>().clip = audioClips[i];
-            NewTile.transform.localScale = new Vector3(Width, Height, Length - i * 0.005f);
+            NewTile.transform.localScale = new Vector3(Width, Height, Length - (20-i) * 0.005f);
             NewTile.transform.eulerAngles = new Vector3(0, 90, 0);
             NewTile.GetComponent<Renderer>().material.color = new Color(red, green, blue);
             NewTile.SetActive(false);
             InstrumentTiles[i] = NewTile;
-            //x += 0.05f;
         }
 
     }
@@ -136,5 +121,28 @@ public class Xylophone : MonoBehaviour
     {
         Parent.SetPositionAndRotation(InitialPosition, InitialRotation);
         slider.value = 0.5f;
+    }
+
+    public void GetControllers()
+    {
+        foreach (GameObject tile in InstrumentTiles)
+        {
+            tile.GetComponent<PlayOnTrigger1>().GetControllers();
+        }
+    }
+
+    public void TogglePlayOnTriggerComponent(bool isOn)
+    {
+        foreach(GameObject tile in InstrumentTiles)
+        {
+            tile.GetComponent<PlayOnTrigger1>().enabled = isOn;
+        }
+    }
+
+    public void EnterPlayMode()
+    {
+        TogglePlayOnTriggerComponent(true);
+        GetControllers();
+        GetComponent<XRGrabInteractable>().enabled = false;
     }
 }

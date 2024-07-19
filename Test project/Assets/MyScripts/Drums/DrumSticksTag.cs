@@ -5,5 +5,5 @@ using UnityEngine;
 public class DrumSticksTag : MonoBehaviour
 {
     [HideInInspector]
-    public string HolderTag;
+    public string HolderTag = "";
 }
