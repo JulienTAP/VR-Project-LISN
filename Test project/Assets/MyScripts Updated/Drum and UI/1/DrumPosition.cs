@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class DrumPosition : MonoBehaviour
 {
-    private Vector3 PosC;
+   
     public Transform Parent;
     public float rayon;
+    public float hauteur;
     public GameObject PointRepère;
+    
 
     private int angle;
     
     public void InitPos(int nb)
     {
-        
-        /*PosC = this.transform.position;*/
+
+       
         switch (nb)
         {
             case 0:
@@ -38,19 +40,16 @@ public class DrumPosition : MonoBehaviour
                 break;
 
         }
-        
-        this.transform.position = PointRepère.transform.position + rayon * (Mathf.Cos(angle * Mathf.Deg2Rad) * PointRepère.transform.right + Mathf.Sin(angle * Mathf.Deg2Rad) * PointRepère.transform.forward);
-        this.transform.position = new Vector3(this.transform.position.x, Parent.position.y, this.transform.position.z);
-        this.transform.eulerAngles -= new Vector3(0, angle-(90 * (int)(2.0f - rayon)), 0);
 
+        this.transform.position = PointRepère.transform.position + rayon * (Mathf.Cos(angle * Mathf.Deg2Rad) * PointRepère.transform.right + Mathf.Sin(angle * Mathf.Deg2Rad) * PointRepère.transform.forward) + new Vector3(0, Parent.position.y - PointRepère.transform.position.y, 0);
+        this.transform.eulerAngles -= new Vector3(0, angle - (90 * (int)(2.0f - rayon)), 0);
     }
 
-    public void ChangePos(float pos/*, Vector3 direction*/)
+    public void ChangePos(float pos)
     {
-        /*this.transform.position = PosC + direction * 2 *(pos > 0.5f ? pos - 0.5f : pos - 0.5f);*/
-        this.transform.position = PointRepère.transform.position + rayon*(Mathf.Cos((pos+1.0f)* Mathf.PI + (angle - (90 * (int)(2.0f - rayon))) * Mathf.Deg2Rad) * PointRepère.transform.right - Mathf.Sin((pos + 1.0f) * Mathf.PI + (angle-90) * Mathf.Deg2Rad) * PointRepère.transform.forward);
-        this.transform.position = new Vector3(this.transform.position.x, Parent.position.y, this.transform.position.z);
-        this.transform.eulerAngles =  new Vector3(-75, (pos + 1.0f) * Mathf.PI * Mathf.Rad2Deg  + (angle - (90 * (int)(2.0f - rayon))), 90);
+       
+        this.transform.position = PointRepère.transform.position + rayon * (Mathf.Cos((pos + 1.0f) * Mathf.PI + (angle - 90) * Mathf.Deg2Rad) * PointRepère.transform.right - Mathf.Sin((pos + 1.0f) * Mathf.PI + (angle - 90) * Mathf.Deg2Rad) * PointRepère.transform.forward) + new Vector3(0, Parent.position.y - PointRepère.transform.position.y, 0);
+        this.transform.eulerAngles = new Vector3(-75, (pos + 1.0f) * Mathf.PI * Mathf.Rad2Deg + (angle - (90 * (int)(2.0f - rayon))), 90);
     }
 
     public void SetPos(int pos)
