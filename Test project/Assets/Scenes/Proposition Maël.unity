@@ -331,7 +331,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40916601}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5cd0f7b7a46c3b4ebb7a48fec0d4bbd, type: 3}
   m_Name: 
@@ -3881,11 +3881,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 599585999786325931, guid: 64b917ca427330c4eb6719847a88a231, type: 3}
       propertyPath: m_Name
-      value: DrumStick (1)
+      value: LeftDrumStick
       objectReference: {fileID: 0}
     - target: {fileID: 599585999786325931, guid: 64b917ca427330c4eb6719847a88a231, type: 3}
       propertyPath: m_TagString
-      value: RDrumStick
+      value: LDrumStick
       objectReference: {fileID: 0}
     - target: {fileID: 3347160117369614613, guid: 64b917ca427330c4eb6719847a88a231, type: 3}
       propertyPath: m_ThrowOnDetach
@@ -4902,7 +4902,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555764584}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5cd0f7b7a46c3b4ebb7a48fec0d4bbd, type: 3}
   m_Name: 
@@ -8479,11 +8479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 599585999786325931, guid: 64b917ca427330c4eb6719847a88a231, type: 3}
       propertyPath: m_Name
-      value: DrumStick
+      value: RightDrumStick
       objectReference: {fileID: 0}
     - target: {fileID: 599585999786325931, guid: 64b917ca427330c4eb6719847a88a231, type: 3}
       propertyPath: m_TagString
-      value: LDrumStick
+      value: RDrumStick
       objectReference: {fileID: 0}
     - target: {fileID: 3347160117369614613, guid: 64b917ca427330c4eb6719847a88a231, type: 3}
       propertyPath: m_ThrowOnDetach
@@ -9312,7 +9312,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245723147}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5cd0f7b7a46c3b4ebb7a48fec0d4bbd, type: 3}
   m_Name: 
@@ -10886,7 +10886,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477275451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5cd0f7b7a46c3b4ebb7a48fec0d4bbd, type: 3}
   m_Name: 
@@ -15481,7 +15481,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974155669}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5cd0f7b7a46c3b4ebb7a48fec0d4bbd, type: 3}
   m_Name: 
