@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
+using Unity.XR.CoreUtils;
 
-public class MainCamera : MonoBehaviour
+public class MainCamera : XROrigin
 {
     private TrackedPoseDriver driver;
-    private Vector3 localPosition;
+    private Vector3 localPosition = Vector3.zero;
     private Quaternion localRotation;
 
-    private void Start()
+    private new void Start()
     {
         driver = GetComponent<TrackedPoseDriver>();
-        localPosition = transform.localPosition;
         localRotation = transform.localRotation;
     }
 
@@ -30,7 +30,7 @@ public class MainCamera : MonoBehaviour
 
     public void ResetCameraPosition()
     {
-        transform.localPosition = localPosition;
+        MoveCameraToWorldLocation(localPosition);
         transform.localRotation = localRotation;
     }
 }

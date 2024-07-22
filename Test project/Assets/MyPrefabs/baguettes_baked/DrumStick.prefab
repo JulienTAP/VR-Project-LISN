@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 574465192611159411}
   - component: {fileID: 1469128871053732644}
   - component: {fileID: 7502301730114211417}
-  - component: {fileID: 4218421607157948647}
   - component: {fileID: 8926055587634332199}
   - component: {fileID: 3347160117369614613}
+  - component: {fileID: 8038501486550728878}
   m_Layer: 0
   m_Name: DrumStick
   m_TagString: Untagged
@@ -86,29 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4218421607157948647
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599585999786325931}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.00015710844
-  m_Height: 0.0035233684
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.0000016273461, z: 0.0000014753639}
 --- !u!54 &8926055587634332199
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -288,3 +265,24 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!135 &8038501486550728878
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599585999786325931}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.00007
+  m_Center: {x: 0, y: 0, z: 0.0017}

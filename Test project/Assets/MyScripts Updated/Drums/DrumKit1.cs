@@ -87,13 +87,24 @@ public class DrumKit1 : MonoBehaviour
     }
 
 
-    public void GetControllers()
+    public void GetController(string tag)
     {
         foreach(GameObject drum in InstrumentElements)
         {
-            drum.GetComponentInChildren<PlayOnTrigger1>().GetControllers();
+            drum.GetComponentInChildren<PlayOnTrigger1>().GetController(tag);
         }
     }
+
+    public void RemoveController(string tag)
+    {
+        foreach (GameObject drum in InstrumentElements)
+        {
+            drum.GetComponentInChildren<PlayOnTrigger1>().RemoveController(tag);
+        }
+    }
+
+
+
 
     public void TogglePlayOnTriggerComponent(bool isOn)
     {
@@ -106,7 +117,7 @@ public class DrumKit1 : MonoBehaviour
     public void TogglePlayMode(bool isOn)
     {
         SetDrumsGrabInteractions(!isOn);
-        GetControllers();
+        //GetControllers();
         //TogglePlayOnTriggerComponent(isOn);
     }
 }

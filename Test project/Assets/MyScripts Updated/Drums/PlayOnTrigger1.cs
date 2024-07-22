@@ -30,11 +30,11 @@ public class PlayOnTrigger1 : MonoBehaviour
                     audioSource.volume = velocity.magnitude;
                 }
                 holderTag = other.GetComponent<DrumSticks>().HolderTag;
-                if (holderTag == "LeftController")
+                if (holderTag == "LeftController" && LeftController != null)
                 {
                     LeftController.SendHapticImpulse(0.1f, 0.1f);
                 }
-                else if (holderTag == "RightController")
+                else if (holderTag == "RightController" && RightController != null)
                 {
                     RightController.SendHapticImpulse(0.1f, 0.1f);
                 }
@@ -48,10 +48,26 @@ public class PlayOnTrigger1 : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void GetControllers()
+    public void GetController(string tag)
     {
-        LeftController = GameObject.FindWithTag("LeftController").GetComponent<XRDirectInteractor>();
-        RightController = GameObject.FindWithTag("RightController").GetComponent<XRDirectInteractor>();
+        if(tag == "LeftController")
+        {
+            LeftController = GameObject.FindWithTag(tag).GetComponent<XRDirectInteractor>();
+
+        } else
+        {
+            RightController = GameObject.FindWithTag(tag).GetComponent<XRDirectInteractor>();
+        }
+    }
+
+    public void RemoveController(string tag) { 
+        if(tag == "LeftController")
+        {
+            LeftController = null;
+        } else
+        {
+            RightController = null;
+        }
     }
 
 }

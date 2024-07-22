@@ -127,11 +127,19 @@ public class Xylophone : MonoBehaviour
         slider.value = 0.5f;
     }
 
-    public void GetControllers()
+    public void GetController(string tag)
     {
         foreach (GameObject tile in InstrumentTiles)
         {
-            tile.GetComponent<PlayOnTrigger1>().GetControllers();
+            tile.GetComponent<PlayOnTrigger1>().GetController(tag);
+        }
+    }
+
+    public void RemoveController(string tag)
+    {
+        foreach (GameObject Tile in InstrumentTiles)
+        {
+            Tile.GetComponentInChildren<PlayOnTrigger1>().RemoveController(tag);
         }
     }
 
@@ -146,7 +154,7 @@ public class Xylophone : MonoBehaviour
     public void TogglePlayMode(bool isOn)
     {
         //TogglePlayOnTriggerComponent(!isOn);
-        GetControllers();
+        //GetControllers();
         GetComponent<XRGrabInteractable>().enabled = !isOn;
     }
 }
