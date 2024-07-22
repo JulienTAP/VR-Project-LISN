@@ -41,7 +41,7 @@ public class Xylophone : MonoBehaviour
         InitialPosition = Parent.position;
         InitialRotation = Parent.rotation;
         Initializer();
-        TogglePlayOnTriggerComponent(false);
+        //TogglePlayOnTriggerComponent(false);
         this.gameObject.SetActive(false);
     }
 
@@ -145,7 +145,7 @@ public class Xylophone : MonoBehaviour
 
     public void TogglePlayMode(bool isOn)
     {
-        TogglePlayOnTriggerComponent(!isOn);
+        //TogglePlayOnTriggerComponent(!isOn);
         GetControllers();
         GetComponent<XRGrabInteractable>().enabled = !isOn;
     }
