@@ -32,10 +32,10 @@ public class DrumPosition : MonoBehaviour
                 angle = 70 - AngleOffeset;
                 break;
             case 3:
-                angle = 130 + 2 * AngleOffeset;
+                angle = 120 + 2 * AngleOffeset;
                 break;
             case 4:
-                angle = 50 - 2 * AngleOffeset;
+                angle = 60 - 2 * AngleOffeset;
                 break;
         }
 
