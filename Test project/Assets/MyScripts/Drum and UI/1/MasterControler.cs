@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Unity.XR.CoreUtils;
 
 public class MasterControler : MonoBehaviour
 {
@@ -11,9 +10,6 @@ public class MasterControler : MonoBehaviour
     public GameObject slider;
     public GameObject xrRig;
     public GameObject Anchor;
-
-    public XROrigin Origin;
-
     /*public enum DirectionFacing
     {
         X,
@@ -26,13 +22,13 @@ public class MasterControler : MonoBehaviour
     }
     public SideFacing Side;
     public DirectionFacing Direction;*/
-    private int nbDrum = 2;
+    private int nbDrum = 1;
 
     public void Start()
     {
         for (int i = 0; i < Drums.Length; i++)
         {
-            this.Drums[i].GetComponent<DrumPosition>().InitPos(i+1);
+            this.Drums[i].GetComponent<DrumPosition2>().InitPos(i+1);
         }
         xrRig.GetComponent<RigPositions>().InitPosRX();
 
@@ -146,7 +142,7 @@ public class MasterControler : MonoBehaviour
 
     public void SuppDrum()
     {
-        if (this.nbDrum > 2)
+        if (this.nbDrum > 1)
         {
             this.Drums[nbDrum - 1].SetActive(false);
             this.nbDrum -= 1;
@@ -156,12 +152,6 @@ public class MasterControler : MonoBehaviour
         {
             Debug.Log("Il n'y a qu'un seul tambour");
         }
-    }
-
-    public void ResetXROrigin()
-    {
-        Origin.MoveCameraToWorldLocation(new Vector3(-1,3 + 1.36144f, 0));
-        Origin.MatchOriginUpCameraForward(new Vector3(0,1,0), new Vector3(1,0,0));
     }
 
     

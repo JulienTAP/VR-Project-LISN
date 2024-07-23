@@ -21,13 +21,13 @@ public class PlayOnTrigger1 : MonoBehaviour
             magnitude = velocity.magnitude;
             if(velocity.y < 0 )
             {
-                if(magnitude > 1.0f)
+                if(magnitude > 2.0f)
                 {
                     audioSource.volume = 1.0f;
                 }
                 else
                 {
-                    audioSource.volume = velocity.magnitude;
+                    audioSource.volume = velocity.magnitude/2;
                 }
                 holderTag = other.GetComponent<DrumSticks>().HolderTag;
                 if (holderTag == "LeftController" && LeftController != null)
@@ -38,6 +38,7 @@ public class PlayOnTrigger1 : MonoBehaviour
                 {
                     RightController.SendHapticImpulse(0.1f, 0.1f);
                 }
+                audioSource.pitch = Random.Range(0.7f, 1.3f);
                 audioSource.Play();
             }
             
