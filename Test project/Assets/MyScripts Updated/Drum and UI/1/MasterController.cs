@@ -9,8 +9,10 @@ public class MasterController : MonoBehaviour
     public GameObject[] Drums = new GameObject[5];
     public GameObject dropdown;
     public GameObject slider;
+    public GameObject SliderText;
     public GameObject xrRig;
     public GameObject Anchor;
+
     /*public enum DirectionFacing
     {
         X,
@@ -65,16 +67,16 @@ public class MasterController : MonoBehaviour
 
     public void PosDrum(float value/*, Vector3 direction*/)
     {
-        for(int i=0; i<Drums.Length; i++)
+        for (int i = 0; i < Drums.Length; i++)
         {
             this.Drums[i].GetComponent<DrumPosition>().ChangePos(value/*, direction*/);
         }
-        
+
     }
 
     public void SetDrum(int value)
     {
-        
+
         for (int i = 0; i < Drums.Length; i++)
         {
             this.Drums[i].GetComponent<DrumPosition>().SetPos(value/*, GetVector3(Direction, Side)*/);
@@ -139,7 +141,7 @@ public class MasterController : MonoBehaviour
             this.Drums[this.nbDrum].SetActive(true);
             this.nbDrum += 1;
         }
-        
+
     }
 
     public void SuppDrum()
@@ -156,5 +158,12 @@ public class MasterController : MonoBehaviour
         }
     }
 
-    
+    public void SetTextSlider()
+    {
+        SliderText.GetComponent<TMP_Text>().text = Mathf.Round((slider.GetComponent<Slider>().value - 0.5f) * 180).ToString() + "°";
+    }
+
+
+
+
 }

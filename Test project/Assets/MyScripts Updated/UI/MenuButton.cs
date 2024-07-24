@@ -25,18 +25,15 @@ public class MenuButton : MonoBehaviour
 
     public XROrigin XRRig;
 
-    private bool BlockPosition = false;
-
     private void Start()
     {
         XRRig.MoveCameraToWorldLocation(new Vector3(0, 2 + 1.2f, 0));
         XRRig.MatchOriginUpCameraForward(new Vector3(0, 1, 0), new Vector3(1, 0, 0));
-
     }
 
     public void ToggleMenuMode(bool isOn)
     {
-        IsMenuMode = !IsMenuMode;
+        IsMenuMode = isOn;
         AdminOverlay.SetActive(isOn);
         PositionCanva.SetActive(isOn);
         GrabCanva.SetActive(isOn);
@@ -44,17 +41,21 @@ public class MenuButton : MonoBehaviour
         Xylo.TogglePlayMode(!isOn);
         LeftController.SetXRayInteractor(isOn);
         RightController.SetXRayInteractor(isOn);
+        XRRig.MoveCameraToWorldLocation(new Vector3(0, 2 + 1.2f, 0));
+        XRRig.MatchOriginUpCameraForward(new Vector3(0, 1, 0), new Vector3(1, 0, 0));
     }
 
     private void Update()
     {
         if (Input.GetAxis("Vertical") > 0.9f && !IsMenuMode)
         {
-            EnterMenuMode();
+            //EnterMenuMode();
+            ToggleMenuMode(true);
         }
-        if (BlockPosition)
+        else if (Input.GetButtonDown("TeleportToBase"))
         {
             XRRig.MoveCameraToWorldLocation(new Vector3(0, 2 + 1.2f, 0));
+            XRRig.MatchOriginUpCameraForward(new Vector3(0, 1, 0), new Vector3(1, 0, 0));
         }
     }
 
@@ -70,7 +71,6 @@ public class MenuButton : MonoBehaviour
         LeftStick.GetComponent<XRGrabInteractable>().enabled = !EnterConfirmCanva;
         RightStick.GetComponent<XRGrabInteractable>().enabled = !EnterConfirmCanva;
         IsMenuMode = true;
-        BlockPosition = EnterConfirmCanva;
         if (!EnterConfirmCanva)
         {
             XRRig.MoveCameraToWorldLocation(new Vector3(0, 2 + 1.2f, 0));
@@ -86,7 +86,6 @@ public class MenuButton : MonoBehaviour
         ConfirmPlayingCanva.SetActive(false);
         LeftStick.GetComponent<XRGrabInteractable>().enabled = true;
         RightStick.GetComponent<XRGrabInteractable>().enabled = true;
-        BlockPosition = false;
 
         XRRig.MoveCameraToWorldLocation(new Vector3(0, 2 + 1.2f, 0));
         XRRig.MatchOriginUpCameraForward(new Vector3(0,1,0), new Vector3(1,0,0));
