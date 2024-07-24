@@ -9,8 +9,10 @@ public class MasterController : MonoBehaviour
     public GameObject[] Drums = new GameObject[5];
     public GameObject dropdown;
     public GameObject slider;
+    public GameObject SliderText;
     public GameObject xrRig;
     public GameObject Anchor;
+
     /*public enum DirectionFacing
     {
         X,
@@ -154,6 +156,11 @@ public class MasterController : MonoBehaviour
         {
             Debug.Log("Il n'y a qu'un seul tambour");
         }
+    }
+
+    public void SetTextSlider()
+    {
+        SliderText.GetComponent<TMP_Text>().text = Mathf.Round((slider.GetComponent<Slider>().value - 0.5f)*180).ToString() + "°";
     }
 
     
