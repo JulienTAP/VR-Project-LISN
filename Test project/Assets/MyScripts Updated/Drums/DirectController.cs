@@ -11,7 +11,7 @@ public class DirectController : MonoBehaviour
 
     void OnTriggerStay(Collider other){
         if(other.CompareTag("LDrumStick") || other.CompareTag("RDrumStick")){
-            other.GetComponent<DrumSticks>().HolderTag = this.tag;
+            other.GetComponentInChildren<DrumSticks>().HolderTag = this.tag;
         }
     }
 

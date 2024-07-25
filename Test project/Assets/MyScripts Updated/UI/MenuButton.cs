@@ -27,8 +27,7 @@ public class MenuButton : MonoBehaviour
 
     private void Start()
     {
-        XRRig.MoveCameraToWorldLocation(new Vector3(0, 2 + 1.2f, 0));
-        XRRig.MatchOriginUpCameraForward(new Vector3(0, 1, 0), new Vector3(1, 0, 0));
+        Invoke(nameof(EnterMenuMode),1);
     }
 
     public void ToggleMenuMode(bool isOn)
@@ -45,14 +44,19 @@ public class MenuButton : MonoBehaviour
         XRRig.MatchOriginUpCameraForward(new Vector3(0, 1, 0), new Vector3(1, 0, 0));
     }
 
+    private void EnterMenuMode()
+    {
+        ToggleMenuMode(true);
+    }
+
     private void Update()
     {
-        if (Input.GetAxis("Vertical") > 0.9f && !IsMenuMode)
+        if (Input.GetKeyDown(KeyCode.Joystick1Button6) && !IsMenuMode)
         {
             //EnterMenuMode();
             ToggleMenuMode(true);
         }
-        else if (Input.GetButtonDown("TeleportToBase"))
+        else if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
             XRRig.MoveCameraToWorldLocation(new Vector3(0, 2 + 1.2f, 0));
             XRRig.MatchOriginUpCameraForward(new Vector3(0, 1, 0), new Vector3(1, 0, 0));
@@ -92,7 +96,7 @@ public class MenuButton : MonoBehaviour
 
     }
 
-    public void EnterMenuMode()
+    /*public void EnterMenuMode()
     {
         IsMenuMode = true;
         LeftController.SetXRayInteractor(true);
@@ -108,5 +112,5 @@ public class MenuButton : MonoBehaviour
         XRRig.MoveCameraToWorldLocation(new Vector3(0, 2 + 1.2f, 0));
         XRRig.MatchOriginUpCameraForward(new Vector3(0, 1, 0), new Vector3(1, 0, 0));
 
-    }
+    }*/
 }

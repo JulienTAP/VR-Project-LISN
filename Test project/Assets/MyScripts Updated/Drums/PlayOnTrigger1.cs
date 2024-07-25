@@ -13,15 +13,15 @@ public class PlayOnTrigger1 : MonoBehaviour
     private string holderTag;
     private Vector3 velocity;
     private float magnitude;
-    private ParticleSystem LeftParticleSystem;
-    private ParticleSystem RightParticleSystem;
+
+    private GameObject ParticlesPrefab;
 
 
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("LDrumStick") || other.CompareTag("RDrumStick"))
         {
-            velocity = other.GetComponent<Rigidbody>().velocity;
+            velocity = other.GetComponentsInParent<Rigidbody>()[1].velocity;
             magnitude = velocity.magnitude;
             if(velocity.y < 0 )
             {
@@ -33,24 +33,17 @@ public class PlayOnTrigger1 : MonoBehaviour
                 {
                     audioSource.volume = velocity.magnitude;
                 }
-                holderTag = other.GetComponent<DrumSticks>().HolderTag;
+                holderTag = other.GetComponentInParent<DrumSticks>().HolderTag;
                 if (holderTag == "LeftController" && LeftController != null)
                 {
                     LeftController.SendHapticImpulse(0.1f, 0.1f);
-                    
                 }
                 else if (holderTag == "RightController" && RightController != null)
                 {
                     RightController.SendHapticImpulse(0.1f, 0.1f);
                 }
-                if (other.CompareTag("LDrumStick"))
-                {
-                    LeftParticleSystem.Play();
-                }
-                else
-                {
-                    RightParticleSystem.Play();
-                }
+                GameObject Particles = Instantiate(ParticlesPrefab, other.transform.position, other.transform.rotation);
+                Particles.GetComponent<DestroyParticle>().DelayDestroy();
                 audioSource.Play();
             }
             
@@ -58,10 +51,8 @@ public class PlayOnTrigger1 : MonoBehaviour
     }
 
     void Start(){
-        
+        ParticlesPrefab = GameObject.Find("ParticleSystem");
         audioSource = GetComponent<AudioSource>();
-        LeftParticleSystem = GameObject.Find("LeftDrumStick").GetComponentInChildren<ParticleSystem>();
-        RightParticleSystem = GameObject.Find("RightDrumStick").GetComponentInChildren<ParticleSystem>();
     }
 
     public void GetController(string tag)
