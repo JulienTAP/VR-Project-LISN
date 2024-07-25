@@ -1705,10 +1705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3f8a9ae7881e2488cad0724bf655a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Drums: {fileID: 1668013258}
-  Xylophone: {fileID: 293106876}
-  PreviousInstrument: 0
-  DropDown: {fileID: 0}
 --- !u!1001 &216872184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4230,10 +4226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d6e79629a4c1843acbae7f42d38d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Drums: {fileID: 0}
-  Xylophone: {fileID: 0}
-  PreviousInstrument: 0
-  DropDown: {fileID: 0}
 --- !u!114 &441203628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16016,8 +16008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6257d064230dad24f9972ca9927e99db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ElementsNumber: 2
-  MinElementsNumber: 2
+  ElementsNumber: 1
+  MinElementsNumber: 1
   MaxElementsNumber: 5
   counter: {fileID: 1531614638}
   T: {fileID: 882278737}
