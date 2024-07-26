@@ -1103,6 +1103,7 @@ GameObject:
   - component: {fileID: 135109585}
   - component: {fileID: 135109587}
   - component: {fileID: 135109586}
+  - component: {fileID: 135109588}
   m_Layer: 3
   m_Name: Collider
   m_TagString: RDrumStick
@@ -1173,6 +1174,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.00007
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &135109588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135109584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d10dedc1dd795543a31091101ce4726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HolderTag: 
 --- !u!1001 &136825698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4777,7 +4791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8926055587634332199, guid: 64b917ca427330c4eb6719847a88a231, type: 3}
       propertyPath: m_AngularDrag
-      value: 0.005
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8926055587634332199, guid: 64b917ca427330c4eb6719847a88a231, type: 3}
       propertyPath: m_IsKinematic
@@ -4789,7 +4803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8926055587634332199, guid: 64b917ca427330c4eb6719847a88a231, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8038501486550728878, guid: 64b917ca427330c4eb6719847a88a231, type: 3}
@@ -8989,7 +9003,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 1
@@ -11037,6 +11051,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8926055587634332199, guid: 64b917ca427330c4eb6719847a88a231, type: 3}
+      propertyPath: m_Mass
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8926055587634332199, guid: 64b917ca427330c4eb6719847a88a231, type: 3}
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
@@ -11050,7 +11068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8926055587634332199, guid: 64b917ca427330c4eb6719847a88a231, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8038501486550728878, guid: 64b917ca427330c4eb6719847a88a231, type: 3}
@@ -20425,7 +20443,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 1
@@ -21166,6 +21184,7 @@ GameObject:
   - component: {fileID: 2137752937}
   - component: {fileID: 2137752939}
   - component: {fileID: 2137752938}
+  - component: {fileID: 2137752940}
   m_Layer: 3
   m_Name: Collider
   m_TagString: LDrumStick
@@ -21236,6 +21255,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.00007
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2137752940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137752936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d10dedc1dd795543a31091101ce4726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HolderTag: 
 --- !u!1001 &2143343105
 PrefabInstance:
   m_ObjectHideFlags: 0

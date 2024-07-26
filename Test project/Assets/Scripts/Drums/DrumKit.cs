@@ -22,7 +22,7 @@ public class DrumKit : MonoBehaviour
     //The toggle object that allows the user to grab the elements
     public Toggle T;
 
-
+    //An array with the 5 elements of the drum kit
     public GameObject[] InstrumentElements;
 
     void Start()

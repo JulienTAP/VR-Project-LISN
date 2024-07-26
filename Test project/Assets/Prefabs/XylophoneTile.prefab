@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7843223733553444257}
   - component: {fileID: 1525047494589296178}
   - component: {fileID: 8414987915235011769}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: XylophoneTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
