@@ -1643,7 +1643,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 210967026}
-        m_TargetAssemblyTypeName: InstrumentChangement1, Assembly-CSharp
+        m_TargetAssemblyTypeName: InstrumentChangement, Assembly-CSharp
         m_MethodName: ChangeInstrument
         m_Mode: 1
         m_Arguments:
@@ -1702,9 +1702,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 210967021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b3f8a9ae7881e2488cad0724bf655a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 19386f715adad34418d3dd644dbf09be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Drums: {fileID: 1668013258}
+  Xylophone: {fileID: 293106876}
 --- !u!1001 &216872184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4169,9 +4171,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3667051745010976280, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 441203630}
-    - targetCorrespondingSourceObject: {fileID: 7782198574890342302, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 441203627}
     - targetCorrespondingSourceObject: {fileID: 7782198575597785484, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 441203629}
@@ -4214,18 +4213,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3667051746007278432, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
   m_PrefabInstance: {fileID: 441203619}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &441203627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 441203622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54d6e79629a4c1843acbae7f42d38d96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &441203628
 MonoBehaviour:
   m_ObjectHideFlags: 0

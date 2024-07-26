@@ -21,6 +21,7 @@ public class DirectController : MonoBehaviour
         GetComponent<SphereCollider>().enabled = true;
     }
 
+    //These two functions are called when the controllers appear / disappear of the screen
     private void OnEnable()
     {
         Drums.GetController(tag);
